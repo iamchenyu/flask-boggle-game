@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block content %}
+<main id="playarea" class="ui grid">
+  <div id="game" class="eight wide column">
+    <table id="board">
+      {% for y in range(session["board"]|length) %}
+      <tr>
+        {% for x in range(session["board"]|length) %}
+        <td id="{{y}}-{{x}}"><p>{{session["board"][y][x]}}</p></td>
+        {% endfor %}
+      </tr>
+      {% endfor %}
+    </table>
+  </div>
+  <div id="result-section" class="four wide column">
+    <form id="word-form" class="ui form">
+      <div class="inline fields">
+        <label for="word">Your Guess:</label>
+        <input type="text" name="word" id="word" class="ui input focus" />
+      </div>
+    </form>
+    <div class="ui message">
+      <p>Your score is: <span id="score">0</span></p>
+      <p>
+        Highest score is:
+        <span id="highest-score">{{session["highest_score"]}}</span>
+      </p>
+    </div>
+    <p id="result"></p>
+
+    <ul id="show-result" class="ui list"></ul>
+    <button style="display: none" id="restart" class="ui primary button">
+      <a href="/" style="color: white">Restart</a>
+    </button>
+  </div>
+</main>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends "base.html" %} {% block content %}
+<form action="/" method="POST" id="row-form" class="ui form container">
+  <div class="field ui grid">
+    <label for="row" class="sixteen wide column"
+      >How many rows do you want for your game board?</label
+    >
+    <select
+      name="row"
+      id="row"
+      required
+      class="ui selection dropdown ten wide column centered"
+    >
+      <option value="">--Please choose a number--</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+      <option value="6">6</option>
+      <option value="7">7</option>
+      <option value="8">8</option>
+    </select>
+  </div>
+  <button class="ui primary button">Submit</button>
+</form>
+{% endblock %}
